@@ -7,14 +7,15 @@ import {
   deleteBatch
 } from "../controllers/batchController.js";
 
-import { verifyToken } from "../middleware/authMiddleware.js";
+import { verifyToken } from "../middlewares/authMiddleware.js";
+import { isInstructor } from "../middlewares/roleMiddleware.js";
 
 const router = express.Router();
 
-router.post("/", verifyToken, createBatch);
-router.get("/", verifyToken, getInstructorBatches);
-router.post("/:batchId/assign-course", verifyToken, assignCourseToBatch);
-router.post("/:batchId/add-student", verifyToken, addStudentToBatch);
-router.delete("/:batchId", verifyToken, deleteBatch);
+router.post("/", verifyToken, isInstructor, createBatch);
+router.get("/", verifyToken, isInstructor, getInstructorBatches);
+router.post("/:batchId/assign-course", verifyToken, isInstructor, assignCourseToBatch);
+router.post("/:batchId/add-student", verifyToken, isInstructor, addStudentToBatch);
+router.delete("/:batchId", verifyToken, isInstructor, deleteBatch);
 
 export default router;

@@ -5,7 +5,7 @@ import {
   logoutInstructor,
   getInstructorProfile
 } from "../controllers/instructorAuthController.js";
-import { verifyToken } from "../middleware/authMiddleware.js";
+import { verifyToken } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

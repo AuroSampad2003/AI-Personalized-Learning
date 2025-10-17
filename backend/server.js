@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import instructorAuthRoutes from "./routes/instructorAuthRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
 import batchRoutes from "./routes/batchRoutes.js"; 
+import lessonRoutes from "./routes/lessonRoutes.js";
 
 
 dotenv.config();
@@ -24,6 +25,7 @@ app.get('/',(req,res)=>{
 app.use("/api/instructor/auth", instructorAuthRoutes);
 app.use("/api/instructor/courses", courseRoutes);
 app.use("/api/instructor/batches", batchRoutes);
+app.use("/api/instructor/lessons", lessonRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
