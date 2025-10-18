@@ -24,6 +24,8 @@
     "mongodb": "^6.9.0",
     "mongoose": "^8.8.0",
     "multer": "^2.0.2",
+    "node-fetch": "^3.3.2",
+    "openai": "^6.5.0",
     "streamifier": "^0.1.1"
   }
 }

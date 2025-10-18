@@ -5,8 +5,10 @@ import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
 import instructorAuthRoutes from "./routes/instructorAuthRoutes.js";
 import courseRoutes from "./routes/courseRoutes.js";
-import batchRoutes from "./routes/batchRoutes.js"; 
+import batchRoutes from "./routes/batchRoutes.js";
 import lessonRoutes from "./routes/lessonRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js";
+import quizRoutes from "./routes/quizRoutes.js";
 
 
 dotenv.config();
@@ -17,7 +19,7 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send("hello")
 })
 
@@ -26,6 +28,8 @@ app.use("/api/instructor/auth", instructorAuthRoutes);
 app.use("/api/instructor/courses", courseRoutes);
 app.use("/api/instructor/batches", batchRoutes);
 app.use("/api/instructor/lessons", lessonRoutes);
+app.use("/api/instructor/aiGenerate", aiRoutes);
+app.use("/api/instructor/quiz", quizRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
