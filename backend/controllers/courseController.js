@@ -97,7 +97,6 @@ export const assignCourseToBatches = async (req, res) => {
   }
 };
 
-
 export const togglePublishStatus = async (req, res) => {
   try {
     const course = await Course.findOne({ _id: req.params.id, instructor: req.user.id });
@@ -116,6 +115,3 @@ export const togglePublishStatus = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-
-
-
